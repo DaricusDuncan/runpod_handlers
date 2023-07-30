@@ -7,6 +7,8 @@ from numpy import UFUNC_BUFSIZE_DEFAULT
 import uuid
 import runpod
 
+default_prompt = "A pitbull drinking a red slushy while wearing shades"
+
 def disableSafetyChecker(images, **kwargs): 
 	return images, False
 
@@ -88,7 +90,6 @@ def runTxt2ImageStableDiffusionPL(prompt = None, num_inference_steps = None, wid
 
   # Setting UUID
   setUUID(uniq)
-  %store -r
 
   # Determine if prompt is provided, if not then default prompt will be used
   if prompt == None:
@@ -124,6 +125,5 @@ pipe = StableDiffusionPipeline.from_pretrained("stablediffusionapi/deliberate-v2
 pipe = pipe.to("cuda")
 pipe.safety_checker = disableSafetyChecker
 
-default_prompt = "A pitbull drinking a red slushy while wearing shades"
 
 runpod.serverless.start({"handler": imageGenerator})
