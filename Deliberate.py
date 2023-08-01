@@ -79,7 +79,6 @@ def runStableDiffusionPipeline(prompt=default_prompt, unique_id = uniq, num_infe
   writeImagePromptFile(prompt, unique_id)
   print(f"Writing image prompt file to Google Drive completed!..")
 
-
 def runTxt2ImageStableDiffusionPL(prompt = None, num_inference_steps = None, width = None, height = None, guidance_scale = None, negative_prompt = None, seed = None):
 
   # generate uuid
@@ -88,7 +87,6 @@ def runTxt2ImageStableDiffusionPL(prompt = None, num_inference_steps = None, wid
 
   # Setting UUID
   setUUID(uniq)
-  %store -r
 
   # Determine if prompt is provided, if not then default prompt will be used
   if prompt == None:
@@ -118,7 +116,7 @@ def run():
         guidance_scale=7.5,
         # Num Inference Steps
         num_inference_steps=50
-        )
+    )
 
 pipe = StableDiffusionPipeline.from_pretrained("stablediffusionapi/deliberate-v2")
 pipe = pipe.to("cuda")
