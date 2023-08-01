@@ -7,6 +7,8 @@ from numpy import UFUNC_BUFSIZE_DEFAULT
 import uuid
 import runpod
 
+default_prompt = "A pitbull drinking a red slushy while wearing shades"
+
 def disableSafetyChecker(images, **kwargs): 
 	return images, False
 
@@ -122,6 +124,5 @@ pipe = StableDiffusionPipeline.from_pretrained("stablediffusionapi/deliberate-v2
 pipe = pipe.to("cuda")
 pipe.safety_checker = disableSafetyChecker
 
-default_prompt = "A pitbull drinking a red slushy while wearing shades"
 
 runpod.serverless.start({"handler": imageGenerator})
