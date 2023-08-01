@@ -125,4 +125,4 @@ pipe = pipe.to("cuda")
 pipe.safety_checker = disableSafetyChecker
 
 
-runpod.serverless.start({"handler": imageGenerator})
+# runpod.serverless.start({"handler": imageGenerator})
