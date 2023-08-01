@@ -8,6 +8,7 @@ import uuid
 import runpod
 
 default_prompt = "A pitbull drinking a red slushy while wearing shades"
+uniq = uuid.uuid1()
 
 def disableSafetyChecker(images, **kwargs): 
 	return images, False

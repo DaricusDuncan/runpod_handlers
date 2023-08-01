@@ -14,4 +14,4 @@ RUN pip install --upgrade pip && \
 ADD Deliberate.py .
 
 # Call your file when your container starts
-CMD [ "python", "-u", "-v", "/Deliberate.py" ]
+# CMD [ "python", "-u", "-v", "/Deliberate.py" ]
